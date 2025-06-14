@@ -1,0 +1,16 @@
+.cardmain{
+    color: rgb(45, 45, 45);
+}
+
+.pastbought{
+    color: rgb(102, 102, 102);
+}
+.priceoff{
+    color: rgb(102, 102, 102);
+}
+
+  .cardmain {
+    position: relative;
+    overflow: hidden;
+  }
+  
