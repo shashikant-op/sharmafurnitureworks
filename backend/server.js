@@ -14,8 +14,9 @@ process.on("uncaughtException",(err)=>{
     process.exit(1);
 })
 
-const server= app.listen(process.env.PORT,()=>{
-    console.log(`app is listning on port ${process.env.PORT}`)
+const PORT=process.env.PORT || 8080;
+const server= app.listen( PORT,()=>{
+    console.log(`app is listning on port ${PORT}`)
 })
 
 //unhandled  rejection
