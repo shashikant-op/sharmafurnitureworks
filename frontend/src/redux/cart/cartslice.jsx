@@ -1,11 +1,21 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+
+//save shipping info
+
+const loadshippinginfo=()=>{
+  const data=localStorage.getItem("shippinginfo");
+  return data? JSON.parse(data):{};
+}
+
+
 // Load cart items from localStorage
 const loadLocalStorage = () => {
   const data = localStorage.getItem("cartitem");
   return data ? JSON.parse(data) : [];
 };
+
 
 // Calculate total count from cart items
 const getCartCount = (items) => {
@@ -54,6 +64,7 @@ const cartSlice = createSlice({
     isLoading: false,
     cartitems: loadLocalStorage(),
     cartCount: getCartCount(loadLocalStorage()),
+    shippinginfo:loadshippinginfo(),
     error: null,
   },
   reducers: {
@@ -77,7 +88,13 @@ const cartSlice = createSlice({
       localStorage.setItem("cartitem", JSON.stringify(state.cartitems));
       localStorage.setItem("cartcount", JSON.stringify(state.cartCount));
     },
+     //setshippinginfo
+  setShippingInfo: (state, action) => {
+    state.shippinginfo = action.payload;
+    localStorage.setItem("shippinginfo", JSON.stringify(action.payload));
   },
+  },
+ 
 
   extraReducers: (builder) => {
     builder
@@ -96,5 +113,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { removeFromCart, updateCartItemQuantity } = cartSlice.actions;
+export const { removeFromCart, updateCartItemQuantity ,setShippingInfo} = cartSlice.actions;
 export default cartSlice.reducer;

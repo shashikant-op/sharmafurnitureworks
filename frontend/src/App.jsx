@@ -13,7 +13,9 @@ import Profile from './component/profile';
 import Prof from './component/prof';
 import Reset from './component/resetpass';
 import { Cart } from './component/cart';
-import Checkout from './component/payment/checkout';
+import Shipping from './component/payment/shipping';
+import Confirm from './component/payment/confirm';
+import Dashboard from './component/dashboard';
 function App() {
   useEffect(() => {
     webfont.load({
@@ -35,8 +37,12 @@ function App() {
             <Route path='/login' element={<Profile/>}/>
             <Route path="/cart" element={<Cart/>}/>
             <Route path="/reset/password/:token" element={<Reset/>} />
-            <Route path="/cart/checkout" element={<Checkout/>} />
+            <Route path="/shipping" element={<Shipping/>} />
+            <Route path="/confirm" element={<Confirm/>}/>
+            <Route path="/dashboard" element={<Dashboard/>}/>
+            
           </Routes>
+
         </main>
         <Footer />
       </div>

@@ -40,16 +40,41 @@ exports.getproductdetails=catchAsyncError(
 
 //create new product -->admin
 
-exports.createnewproduct=catchAsyncError(async(req,res,next)=>{
-    req.body.user=req.user.id;
-    const product=await Product.create(req.body);
-    res.status(200).json({
-        message:"created new product succesfuly",
-        product
-        
-    })
+exports.createnewproduct = catchAsyncError(async (req, res, next) => {
+  req.body.user = req.user.id;
+  console.log("hiii");
 
+  const ProductImg = req.files.productimg.map((img) => ({
+    public_id: img.filename,
+    url: img.path,
+  }));
+
+  const ProductCatalog = req.files.productspecificationimg.map((img) => ({
+    public_id: img.filename,
+    url: img.path,
+  }));
+
+  const productdetail = {
+    title: req.body.name,
+    description: req.body.description,
+    price: req.body.price,
+    user: req.body.user, // you forgot to include this
+    images: ProductImg,
+    specifications: ProductCatalog,
+  };
+
+
+ try {
+  const product = await Product.create(productdetail);
+  console.log(product,"savedproduct");
+  res.status(200).json({ message: "success", product });
+} catch (error) {
+  console.error("❌ Mongoose error:", error);
+  res.status(500).json({ message: error.message });
+}
+ 
 });
+
 
 //update products-->admin
 exports.updateproduct=catchAsyncError(

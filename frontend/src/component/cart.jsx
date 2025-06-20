@@ -14,9 +14,9 @@ export const Cart = () => {
     const islogin = localStorage.getItem("token");
     if (islogin) {
       localStorage.setItem("allowcheckout","true");
-      navigate("/cart/checkout");
+      navigate("/shipping");
     } else {
-      localStorage.setItem("prevlocation","/cart/checkout");
+      localStorage.setItem("prevlocation","/shipping");
       navigate("/login");
     }
   };
@@ -60,7 +60,7 @@ export const Cart = () => {
                 Proceed to Buy ({itemcount} item{itemcount > 1 ? "s" : ""})
               </button>
            <button  className="w-full flex justify-center !bg-green-800 hover:!bg-green-800 text-black font-medium py-3 rounded-full transition duration-200">
-                 <WhatsAppButton phoneno="9523733772" cartitem={cartitems}/>
+                 <WhatsAppButton cartitem={cartitems}/>
               </button>
             </div>
           </div>):("")

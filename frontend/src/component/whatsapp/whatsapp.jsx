@@ -3,12 +3,12 @@ import { FaWhatsapp } from "react-icons/fa";
 
 
 
-const WhatsAppButton = ({ phoneno, cartitem = [] }) => {
+const WhatsAppButton = ({  cartitem = [] }) => {
     
 const frontendlink = import.meta.env.VITE_FRONTEND_URL;
 console.log(frontendlink);
-  const phoneNumber = `${phoneno}`;
-  console.log(cartitem);
+  // const phoneNumber = import.meta.env.VITE_BUSINESS_NO;
+  const phoneNumber = "918051429677";
 
   const generateMessage = () => {
     if (!Array.isArray(cartitem)) return encodeURIComponent("No items in cart.");
@@ -21,7 +21,6 @@ console.log(frontendlink);
       message += `Product: ${frontendlink}/product/${item.product}\n\n`;
     });
     message += "Please confirm availability and delivery details.";
-    console.log(cartitem);
     return encodeURIComponent(message);
   };    
 

@@ -30,6 +30,20 @@ const productSchema =new mongoose.Schema({
             }
         }
     ],
+            
+    specifications: [
+            {
+               public_id:{
+                type:String,
+                required:true
+            },
+            url:{
+                type:String,
+                required:true
+            }
+            },
+            ],
+    
     category:[{
         categoryname:{
             type:String,
