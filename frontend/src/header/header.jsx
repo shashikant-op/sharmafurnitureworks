@@ -16,6 +16,7 @@ const Header = () => {
     } else {
       setKeyword('');
       navigate(`/products`);
+    
     }
   };
 
