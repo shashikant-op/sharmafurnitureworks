@@ -27,25 +27,25 @@ function App() {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Products" element={<Allproducts />} />
-            <Route path="/product/:id" element={<Product />} />
-            <Route path='/login' element={<Profile/>}/>
-            <Route path="/cart" element={<Cart/>}/>
-            <Route path="/reset/password/:token" element={<Reset/>} />
-            <Route path="/shipping" element={<Shipping/>} />
-            <Route path="/confirm" element={<Confirm/>}/>
-            <Route path="/dashboard" element={<Dashboard/>}/>
-            
-          </Routes>
+      <div className="flex flex-col">
+  <Header />
 
-        </main>
-        <Footer />
-      </div>
+  <main className="flex-1 min-h-screen ">
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/Products" element={<Allproducts />} />
+      <Route path="/product/:id" element={<Product />} />
+      <Route path="/login" element={<Profile />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/reset/password/:token" element={<Reset />} />
+      <Route path="/shipping" element={<Shipping />} />
+      <Route path="/confirm" element={<Confirm />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+  </main>
+
+  <Footer />
+</div>
     </Router>
   );
   

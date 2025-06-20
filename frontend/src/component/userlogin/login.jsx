@@ -5,6 +5,7 @@ import {registeruser, loginuser} from "../../redux/users/userslice";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
 const AuthPage = () => {
 
   const navigate=useNavigate();
@@ -27,21 +28,33 @@ const AuthPage = () => {
       const result = await dispatch(loginuser(form));
       if (result.type === "auth/login/fulfilled") {
          const token=localStorage.getItem("token");
+         toast.success("Login sucessfully!");
          settoken(token);
+         
          if(prevlink){
           navigate(prevlink);
          }else{
         navigate("/");
          }
       }
+      if (result.type === "auth/login/rejected") {
+    toast.error("Email or password is incorrect. Please try again.");
+  }
     } else {
+      console.log(form);
       const result = await dispatch(registeruser(form));
+
       if (result.type === "auth/register/fulfilled") {
         const token=localStorage.getItem("token");
          settoken(token);
+         toast.success("Register sucessfully!");
         navigate("/");
         
       }
+      if (result.type === "auth/register/rejected") {
+    toast.error("something wrong.");
+    console.log(form);
+  }
     }
   };
   
@@ -52,14 +65,15 @@ const AuthPage = () => {
   };
  const handleforgot=()=>{
   const email=form.email;
+  
   console.log(email);
   axios.post("http://localhost:8080/api/v1/password/forgot",{email});
-  
-  
+  toast.success("check you Email and forgot password");
  };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 to-purple-200 px-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+    <div className=" h-screen bg-gradient-to-t from-purple-900 to-white to-30% flex items-center justify-center   px-4">
+      <ToastContainer/>
+      <div className="w-full max-w-md p-8">
         <h2 className="text-2xl font-bold text-purple-700 text-center mb-6">
           {isLogin ? "Welcome Back" : "Create Account"}
         </h2>
@@ -121,11 +135,13 @@ const AuthPage = () => {
           {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
           <button
             onClick={() => setIsLogin(!isLogin)}
-            className="text-purple-600 hover:underline"
+            className="text-purple-600 !bg-transparent hover:underline"
           >
             {isLogin ? "Register" : "Login"}
           </button>
-         <button onClick={handleforgot}>forgot?</button> 
+
+         <button className="ml-2 !bg-transparent cursor-pointer" onClick={handleforgot}> forgot? </button> 
+        
         </p>
       </div>
     </div>

@@ -31,23 +31,29 @@ function Rightside({ product, perdis }) {
         <div className="w-full">
           <a href="#" className="text-blue-600 hover:underline">Visit the Storite Store</a>
         </div>
-        <span>4.2</span>
+        <div>
+          <span>4.2</span>
         <span className="text-yellow-500">⭐⭐⭐⭐☆</span>
-        <span className="text-blue-600 underline">{product?.numofreview}</span>
-        <span className="text-blue-600 underline">Search this page</span>
+        <span className="text-blue-600 underline">{product?.numofreview}</span><br />
+        <div className="w-[8.125rem] mt-2 mb-1 px-2 py-1 top-0 text-xs font-semibold text-white bg-yellow-500 rounded">
+            50+ Year's Warranty
+          </div>
+        {/* <span className="text-blue-600 underline">Search this page</span> */}
       </div>
+        </div>
 
       <hr className="w-[15rem] md:w-[25rem] lg:w-[25rem] mt-3 border-t border-gray-600 opacity-40 rounded-full" />
+      
+      <span className="text-[15px]">{product?.description}</span>
+            <hr className="w-[15rem] md:w-[25rem] lg:w-[25rem] mt-3 border-t border-gray-600 opacity-40 rounded-full" />
 
       <div className="flex flex-col md:flex-col  lg:flex-row mt-2 w-full text-left">
 
         {/* Left Column - Product Info */}
         <div className=" space-y-4">
-          <div className="w-[8.125rem] mb-1 px-2 py-1 top-0 text-xs font-semibold text-white bg-yellow-500 rounded">
-            50+ Year's Warranty
-          </div>
+          
 
-          <p className="text-sm text-gray-600 mt-1.5">1K+ bought in past month</p>
+          {/* <p className="text-sm text-gray-600 mt-1.5">1K+ bought in past month</p> */}
 
           <div className="flex items-center space-x-3">
             <div className="bg-red-600 text-white mb-0 text-xs px-2 py-1 rounded">
@@ -164,12 +170,19 @@ function Rightside({ product, perdis }) {
         </div>
         <hr className="w-full lg:hidden md:hidden mt-3 border-t 
         border-gray-600 opacity-40 rounded-full" />
-        <div className="description lg:hidden md:hidden p-1">
+          <div className="description lg:hidden md:hidden p-1">
             <h3 className="text-xl text-black">Product Description</h3>
-            <span>{product?.description}</span>
+            {product && product.specifications.map((image, index) => {
+              return (
+                <div key={index}>
+                  <img src={image.url} alt="Loading" />
+                </div>
+              );
+            })}
           </div>
 
       </div>
+      <ToastContainer/>
     </div>
   );
 }

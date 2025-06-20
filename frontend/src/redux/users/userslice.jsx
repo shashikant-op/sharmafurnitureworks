@@ -3,8 +3,8 @@ import axios from "axios";
 export const loginuser=createAsyncThunk("auth/login",
     async(credential,{rejectWithValue})=>{
         try{
-            
-        const response=await axios.post("http://localhost:8080/api/v1/login",credential);
+            const backendurl = import.meta.env.VITE_BACKEND_URL;
+        const response=await axios.post(`${backendurl}login`,credential);
         console.log(response.data);
         return response.data;
         
@@ -15,19 +15,19 @@ export const loginuser=createAsyncThunk("auth/login",
     }
 );
 
-export const registeruser=createAsyncThunk("auth/register",
-    async(credential,{rejectWithValue})=>{
-        try{
-            
-        const response=await axios.post("http://localhost:8080/api/v1/register",credential);
-        console.log(response.data);
-        return response.data;
-        }catch(error){
-            return rejectWithValue(error.message||"there is error in the login route");
-
-        }
+export const registeruser = createAsyncThunk("auth/register",
+  async (credential, { rejectWithValue }) => {
+    try {
+     const backendurl = import.meta.env.VITE_BACKEND_URL;
+      const response = await axios.post(`${backendurl}register`, credential);
+      console.log("Register Success:", response.data);
+      return response.data;
+    } catch (error) {
+      console.error("Register Error:", error.response?.data || error.message);
+      return rejectWithValue(error.response?.data?.message || error.message || "There is an error in the register route");
     }
-)
+  }
+);
 const userslice=createSlice({
     name:"userdetails",
     initialState:{

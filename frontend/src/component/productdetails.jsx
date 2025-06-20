@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchproductdetails } from "../redux/products/pdtlsslice";
 import Rightside from "./productdetailssec";
 import ProductSkeleton from "./Loader/productdetails";
-
+  import { ToastContainer, toast } from 'react-toastify';
 const Product = () => {
   const [imgurl, setimgurl] = useState("");
   const dispatch = useDispatch();
@@ -73,7 +73,7 @@ const Product = () => {
                   alt="thumbnail"
                   className="w-full h-full object-cover rounded-md"
                 />
-              </div>
+              </div> 
             ))
           ) : (
             <div className="w-12 h-12 bg-gray-200 rounded-md" />

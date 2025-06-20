@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-
+  import { ToastContainer, toast } from 'react-toastify';
 const Dashboard = () => {
   const [productData, setProductData] = useState({
     name: "",
@@ -10,7 +10,9 @@ const Dashboard = () => {
     productimg: [],
     productspecificationimg: [],
   });
+const backendurl = import.meta.env.VITE_BACKEND_URL;
 
+console.log(backendurl,"backendurl");
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -44,7 +46,7 @@ const Dashboard = () => {
       }
        
       const res = await axios.post(
-        "http://localhost:8080/api/v1/admin/product/new",
+        `${backendurl}admin/product/new`,
         formData,
         {
           headers: {
@@ -53,7 +55,7 @@ const Dashboard = () => {
         }
       );
 
-      alert("✅ Product created successfully!");
+      toast.success(" Product created successfully!");
 
       setProductData({
         name: "",
@@ -63,7 +65,7 @@ const Dashboard = () => {
         productspecificationimg: [],
       });
     } catch (error) {
-      alert("Error: " + (error.response?.data?.message || error.message));
+      toast.error("try again ! server problem code 500");
     } finally {
       setLoading(false);
     }
@@ -74,7 +76,7 @@ const Dashboard = () => {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="max-w-xl mx-auto mt-12 p-6 bg-white rounded-2xl shadow-md border border-purple-200"
+      className="max-w-xl mx-auto pt-20 p-6 h-screen bg-white  shadow-md  "
     >
       <h2 className="text-3xl font-bold text-purple-700 mb-6 text-center">
         Create New Product
@@ -174,6 +176,8 @@ const Dashboard = () => {
           {loading ? "Submitting..." : "Submit Product"}
         </motion.button>
       </form>
+        <ToastContainer/>
+
     </motion.div>
   );
 };

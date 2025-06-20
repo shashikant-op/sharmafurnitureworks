@@ -27,7 +27,7 @@ const Profile = () => {
   if (token) {
     return (
       <>
-        <div>
+        <div >
           <div className="h-10 mt-1 p-2 items-center flex flex-row justify-between">
             <div className="w-50% flex items-center gap-x-2 flex-row">
               <div className="w-[30px] rounded-full bg-red-400 h-[30px]"></div>

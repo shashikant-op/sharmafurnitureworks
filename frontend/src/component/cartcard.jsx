@@ -62,7 +62,7 @@ export const CartCard = ({ product }) => {
         <span className="font-semibold text-lg">₹{quantity * price}.00</span>
         <button
           onClick={() => onDelete(id)}
-          className="text-red-600 hover:text-red-800 ! bg-transparent transition text-sm font-medium"
+          className="text-red-600 hover:text-red-800 !bg-transparent transition text-sm font-medium"
         >
           Remove
         </button>

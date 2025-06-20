@@ -26,8 +26,10 @@ const getCartCount = (items) => {
 export const addToCartAsync = createAsyncThunk(
   "cart/addToCartAsync",
   async ({ id, quantity = 1 }, thunkAPI) => {
+    const backendurl = import.meta.env.VITE_BACKEND_URL;
+
     try {
-      const response = await axios.get(`http://localhost:8080/api/v1/productdetails/${id}`);
+      const response = await axios.get(`${backendurl}productdetails/${id}`);
       const product = response.data.product;
 
       const itemData = {

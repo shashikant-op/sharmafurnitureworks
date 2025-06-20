@@ -3,7 +3,8 @@ import axios from "axios";
 
 export const userdetails=createAsyncThunk("user/details",
     async(token)=>{
-         const response = await axios.get("http://localhost:8080/api/v1/me", {
+        const backendurl = import.meta.env.VITE_BACKEND_URL;
+         const response = await axios.get(`${backendurl}me`, {
       headers: {
         Authorization: `Bearer ${token}`,//adding barer
       },

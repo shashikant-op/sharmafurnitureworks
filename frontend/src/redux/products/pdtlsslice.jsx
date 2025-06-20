@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const  fetchproductdetails=createAsyncThunk("fetchproductdetails",async(id)=>{
-    const response=await fetch(`http://localhost:8080/api/v1/productdetails/${id}`);
+     const backendurl = import.meta.env.VITE_BACKEND_URL;
+    const response=await fetch(`${backendurl}productdetails/${id}`);
    
     const data=response.json();
     return data;
