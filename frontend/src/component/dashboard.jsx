@@ -46,7 +46,7 @@ console.log(backendurl,"backendurl");
       }
        
       const res = await axios.post(
-        `${backendurl}admin/product/new`,
+        `${backendurl}/admin/product/new`,
         formData,
         {
           headers: {

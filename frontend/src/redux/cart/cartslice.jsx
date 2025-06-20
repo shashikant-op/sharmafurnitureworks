@@ -29,7 +29,7 @@ export const addToCartAsync = createAsyncThunk(
     const backendurl = import.meta.env.VITE_BACKEND_URL;
 
     try {
-      const response = await axios.get(`${backendurl}productdetails/${id}`);
+      const response = await axios.get(`${backendurl}/productdetails/${id}`);
       const product = response.data.product;
 
       const itemData = {

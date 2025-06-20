@@ -7,12 +7,12 @@ export const  fetchproducts=createAsyncThunk("fetchproducts",async({keyword="",c
     const backendurl = import.meta.env.VITE_BACKEND_URL;
     const [minPrice, maxPrice] = price;
     if(category){
-        link = `${backendurl}products?keyword=${key}&page=${currpage}&price[gte]=${minPrice}&price[lte]=${maxPrice}&category=${category}`;
+        link = `${backendurl}/products?keyword=${key}&page=${currpage}&price[gte]=${minPrice}&price[lte]=${maxPrice}&category=${category}`;
     }
     if (keyword) {
-      link = `${backendurl}products?keyword=${key}&page=${currpage}&price[gte]=${minPrice}&price[lte]=${maxPrice}`;
+      link = `${backendurl}/products?keyword=${key}&page=${currpage}&price[gte]=${minPrice}&price[lte]=${maxPrice}`;
     } else {
-      link = `${backendurl}products?page=${currpage}&price[gte]=${minPrice}&price[lte]=${maxPrice}`;
+      link = `${backendurl}/products?page=${currpage}&price[gte]=${minPrice}&price[lte]=${maxPrice}`;
     }
     const response=await fetch(link);
     const data=await response.json();
