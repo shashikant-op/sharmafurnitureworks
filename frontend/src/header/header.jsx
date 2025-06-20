@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaShoppingCart, FaUserCircle } from 'react-icons/fa';
 import { useNavigate, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import './Header.css';
+import './header.css';
 
 const Header = () => {
   const cartCount = useSelector((state) => state.cart.cartCount); 
