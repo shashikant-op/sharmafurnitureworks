@@ -124,7 +124,7 @@
       </div>
       <div class="footer">
         <p>Best regards,<br><strong>Your Brand Team</strong></p>
-        <p><a href="https://www.yourbrand.com">Visit Our Website</a> | 
+        <p><a href="www.sharmafurnitureworks.com">Visit Our Website</a> | 
         <a href="mailto:support@yourbrand.com">Contact Support</a></p>
       </div>
     </div>
