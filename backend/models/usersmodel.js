@@ -27,7 +27,7 @@ const UserSchema= new mongoose.Schema({
     },
     avatar:{
         public_id:{
-            type:String,
+            type:String, 
             required:true
         },
         url:{
@@ -42,13 +42,16 @@ const UserSchema= new mongoose.Schema({
     resetPasswordToken:String,
     resetPasswordExpire:Date,
 })
+
+//saving hash password
+
 UserSchema.pre("save",async function (next){
     if(!this.isModified("password")){
         next();
     }
     this.password=await bcrypt.hash(this.password,10);
 })
-
+//get jwttoken for signin
 UserSchema.methods.getJWTToken = function(){
     return jwt.sign({id:this._id},process.env.JWT_SECRET,{
         expiresIn:process.env.JWT_EXPIRE,

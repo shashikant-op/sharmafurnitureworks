@@ -2,7 +2,7 @@ const Errorhandler = require("../utlis/errorhandler");
 const asyncerrorhandler = require("./asyncerrorhandler");
 const jwt=require("jsonwebtoken");
 const User=require("../models/usersmodel");
-
+//isauthenticated or not 
 exports.isauthenticated = asyncerrorhandler(async (req, res, next) => {
   let Token;
 
@@ -24,7 +24,7 @@ exports.isauthenticated = asyncerrorhandler(async (req, res, next) => {
 });
 
 
-
+//auth role checking
 exports.authrole=(...role)=>{
   return (req,res,next)=>{
     if(!role.includes(req.user.role)){

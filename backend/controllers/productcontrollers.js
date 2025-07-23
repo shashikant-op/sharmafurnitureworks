@@ -58,7 +58,7 @@ exports.createnewproduct = catchAsyncError(async (req, res, next) => {
     title: req.body.name,
     description: req.body.description,
     price: req.body.price,
-    user: req.body.user, // you forgot to include this
+    user: req.body.user,
     images: ProductImg,
     specifications: ProductCatalog,
   };
@@ -69,10 +69,10 @@ exports.createnewproduct = catchAsyncError(async (req, res, next) => {
   console.log(product,"savedproduct");
   res.status(200).json({ message: "success", product });
 } catch (error) {
-  console.error("❌ Mongoose error:", error);
+  console.error(" Mongoose error:", error);
   res.status(500).json({ message: error.message });
 }
- 
+  
 });
 
 

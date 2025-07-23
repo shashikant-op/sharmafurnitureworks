@@ -7,6 +7,8 @@ class apifeature{
     search(){
         const keyword=this.querystr.keyword ?{
             title:{
+
+                //making regular expressoin for the title
                 $regex:this.querystr.keyword ,
                 $options: "i" ,
             },
