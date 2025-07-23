@@ -43,6 +43,10 @@ exports.getproductdetails=catchAsyncError(
 exports.createnewproduct = catchAsyncError(async (req, res, next) => {
   req.body.user = req.user.id;
   console.log("hiii");
+  
+    // ✅ Parse category and tags (stringified arrays in FormData)
+    const category = JSON.parse(req.body.category || "[]");
+    const tags = JSON.parse(req.body.tags || "[]");
 
   const ProductImg = req.files.productimg.map((img) => ({
     public_id: img.filename,
@@ -54,14 +58,16 @@ exports.createnewproduct = catchAsyncError(async (req, res, next) => {
     url: img.path,
   }));
 
-  const productdetail = {
-    title: req.body.name,
-    description: req.body.description,
-    price: req.body.price,
-    user: req.body.user,
-    images: ProductImg,
-    specifications: ProductCatalog,
-  };
+   const productdetail = {
+      title: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      user: req.body.user,
+      category,
+      tags,
+      images: ProductImg,
+      specifications: ProductCatalog,
+    };
 
 
  try {
