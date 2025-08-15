@@ -14,6 +14,10 @@ const productSchema = new mongoose.Schema({
         required: [true, "Price is required"],
         maxlength: [8, "Price cannot exceed 8 digits"]
     },
+     oldprice: {
+        type: Number,
+        maxlength: [8, "Price cannot exceed 8 digits"]
+    },
     ratings: {
         type: Number,
         default: 2,

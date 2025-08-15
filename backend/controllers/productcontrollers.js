@@ -62,6 +62,7 @@ exports.createnewproduct = catchAsyncError(async (req, res, next) => {
       title: req.body.name,
       description: req.body.description,
       price: req.body.price,
+      oldprice: req.body.oldprice,
       user: req.body.user,
       category,
       tags,
