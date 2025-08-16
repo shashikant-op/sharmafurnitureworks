@@ -1,7 +1,7 @@
 // Footer.js
 import React from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-
+ //footer 
 function Footer() {
   return (
     <footer className="w-full  bg-purple-900 text-white  px-4 py-8">
