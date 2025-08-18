@@ -16,6 +16,8 @@ function Footer() {
         </div>
 
         {/* Quick Links */}
+
+        {/* footer quick link */}
         <div className="sm:basis-1/3 w-full">
           <h3 className="text-md font-semibold mb-2">Quick Links</h3>
           <ul className="text-sm text-gray-400 space-y-1">
