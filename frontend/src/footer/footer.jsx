@@ -4,7 +4,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/f
  //footer 
 function Footer() {
   return (
-    <footer className="w-full  bg-purple-900 text-white  px-4 py-8">
+    <footer className="w-full  bg-gray-800 text-white  px-4 py-8">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:justify-between gap-6">
 
         {/* Company Info */}
