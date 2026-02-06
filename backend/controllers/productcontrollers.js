@@ -10,7 +10,7 @@ exports.getallproduct=catchAsyncError(
     async(req,res)=>{
         const resultperpage=20;
         const productcount=await Product.countDocuments();
-       const apifeature= new ApiFeature(Product.find(),req.query)
+       const apifeature= new ApiFeature(Product.find().sort({ createdAt: -1 }),req.query)
        .search()
        .filter().pagination(resultperpage);
         const products=await apifeature.query;
