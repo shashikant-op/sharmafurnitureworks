@@ -37,6 +37,12 @@ The project follows a scalable architecture with separate frontend and backend a
 
 ---
 
+
+## Screenshot
+<img width="1510" height="1007" alt="Untitled design (2)" src="https://github.com/user-attachments/assets/908bc012-dba6-4c0b-bd39-1d7eb59e5bab" />
+<img width="1510" height="1007" alt="Untitled design (4)" src="https://github.com/user-attachments/assets/3118e71b-dbc9-46f9-80f9-dfbd1fd96c6c" />
+<img width="1510" height="1007" alt="Untitled design (3)" src="https://github.com/user-attachments/assets/c5e2dfa8-4189-445f-9f25-df60b1b6ef1a" />
+<img width="600" height="600" alt="Transform Trending Topics into SEO-Optimized Content with AI (1)" src="https://github.com/user-attachments/assets/d480f13a-f2bd-414f-b5a3-a0948ecb3dbf" />
 # Features
 
 ## Customer
@@ -381,13 +387,6 @@ git push origin feature/new-feature
 5. Open a Pull Request.
 
 ---
-
-## Screenshot
-<img width="1510" height="1007" alt="Untitled design (2)" src="https://github.com/user-attachments/assets/908bc012-dba6-4c0b-bd39-1d7eb59e5bab" />
-<img width="1510" height="1007" alt="Untitled design (4)" src="https://github.com/user-attachments/assets/3118e71b-dbc9-46f9-80f9-dfbd1fd96c6c" />
-<img width="1510" height="1007" alt="Untitled design (3)" src="https://github.com/user-attachments/assets/c5e2dfa8-4189-445f-9f25-df60b1b6ef1a" />
-<img width="600" height="600" alt="Transform Trending Topics into SEO-Optimized Content with AI (1)" src="https://github.com/user-attachments/assets/d480f13a-f2bd-414f-b5a3-a0948ecb3dbf" />
-
 
 
 
